@@ -13,6 +13,15 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C83F44D51D73E79C00E72375"
+            BuildableName = "&#x9605;&#x8bfb;&#x5668;.app"
+            BlueprintName = "&#x9605;&#x8bfb;&#x5668;"
+            ReferencedContainer = "container:&#x9605;&#x8bfb;&#x5668;.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -26,6 +35,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C83F44D51D73E79C00E72375"
+            BuildableName = "&#x9605;&#x8bfb;&#x5668;.app"
+            BlueprintName = "&#x9605;&#x8bfb;&#x5668;"
+            ReferencedContainer = "container:&#x9605;&#x8bfb;&#x5668;.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -35,6 +54,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "C83F44D51D73E79C00E72375"
+            BuildableName = "&#x9605;&#x8bfb;&#x5668;.app"
+            BlueprintName = "&#x9605;&#x8bfb;&#x5668;"
+            ReferencedContainer = "container:&#x9605;&#x8bfb;&#x5668;.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

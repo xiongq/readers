@@ -7,15 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3A623F7D49F6FA8B74E79E0 /* Pods____.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB8C8BACA7DF1970C7EE5127 /* Pods____.framework */; };
+		C837A0391D76E92700339239 /* NetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A0381D76E92700339239 /* NetWorkTools.m */; };
+		C837A03D1D77087000339239 /* pageSeparationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A03C1D77087000339239 /* pageSeparationTools.m */; };
+		C837A0461D771B3A00339239 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A0451D771B3A00339239 /* UIView+Extension.m */; };
 		C83F44DB1D73E79C00E72375 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44DA1D73E79C00E72375 /* main.m */; };
 		C83F44DE1D73E79C00E72375 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44DD1D73E79C00E72375 /* AppDelegate.m */; };
 		C83F44E11D73E79C00E72375 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44E01D73E79C00E72375 /* ViewController.m */; };
 		C83F44E41D73E79C00E72375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83F44E21D73E79C00E72375 /* Main.storyboard */; };
 		C83F44E61D73E79C00E72375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83F44E51D73E79C00E72375 /* Assets.xcassets */; };
 		C83F44E91D73E79C00E72375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83F44E71D73E79C00E72375 /* LaunchScreen.storyboard */; };
+		C83F45001D74022500E72375 /* booksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44FC1D74022500E72375 /* booksCell.m */; };
+		C83F45011D74022500E72375 /* booksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44FE1D74022500E72375 /* booksModel.m */; };
+		C83F45021D74022500E72375 /* booksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83F44FF1D74022500E72375 /* booksCell.xib */; };
+		C83F45051D7483C900E72375 /* textViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F45041D7483C900E72375 /* textViewController.m */; };
+		C8F8E6EE1D75402E001596E4 /* catalogueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E6ED1D75402E001596E4 /* catalogueViewController.m */; };
+		C8F8E6F21D754049001596E4 /* catalogueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E6F01D754049001596E4 /* catalogueTableViewCell.m */; };
+		C8F8E6F31D754049001596E4 /* catalogueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F8E6F11D754049001596E4 /* catalogueTableViewCell.xib */; };
+		C8F8E6FE1D7559BB001596E4 /* catguloModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E6FD1D7559BB001596E4 /* catguloModel.m */; };
+		C8F8F0A21D7831480079A4AA /* Book+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F0931D7831480079A4AA /* Book+CoreDataProperties.m */; };
+		C8F8F0A31D7831480079A4AA /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F0951D7831480079A4AA /* Book.m */; };
+		C8F8F0A41D7831480079A4AA /* bookCoredata.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F0961D7831480079A4AA /* bookCoredata.xcdatamodeld */; };
+		C8F8F0A51D7831480079A4AA /* bookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F0991D7831480079A4AA /* bookViewController.m */; };
+		C8F8F0A61D7831480079A4AA /* Chapter+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F09B1D7831480079A4AA /* Chapter+CoreDataProperties.m */; };
+		C8F8F0A71D7831480079A4AA /* Chapter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F09D1D7831480079A4AA /* Chapter.m */; };
+		C8F8F0A81D7831480079A4AA /* Content+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F09F1D7831480079A4AA /* Content+CoreDataProperties.m */; };
+		C8F8F0A91D7831480079A4AA /* Content.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8F0A11D7831480079A4AA /* Content.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EFBEB28AB8E220605C5C903 /* Pods-阅读器.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-阅读器.debug.xcconfig"; path = "Pods/Target Support Files/Pods-阅读器/Pods-阅读器.debug.xcconfig"; sourceTree = "<group>"; };
+		AB8C8BACA7DF1970C7EE5127 /* Pods____.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods____.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C837A0371D76E92700339239 /* NetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTools.h; sourceTree = "<group>"; };
+		C837A0381D76E92700339239 /* NetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTools.m; sourceTree = "<group>"; };
+		C837A03B1D77087000339239 /* pageSeparationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pageSeparationTools.h; sourceTree = "<group>"; };
+		C837A03C1D77087000339239 /* pageSeparationTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pageSeparationTools.m; sourceTree = "<group>"; };
+		C837A0431D7718C500339239 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		C837A0441D771B3A00339239 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		C837A0451D771B3A00339239 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		C83F44D61D73E79C00E72375 /* 阅读器.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "阅读器.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83F44DA1D73E79C00E72375 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C83F44DC1D73E79C00E72375 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +55,36 @@
 		C83F44E51D73E79C00E72375 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C83F44E81D73E79C00E72375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C83F44EA1D73E79C00E72375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C83F44FB1D74022500E72375 /* booksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = booksCell.h; sourceTree = "<group>"; };
+		C83F44FC1D74022500E72375 /* booksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = booksCell.m; sourceTree = "<group>"; };
+		C83F44FD1D74022500E72375 /* booksModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = booksModel.h; sourceTree = "<group>"; };
+		C83F44FE1D74022500E72375 /* booksModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = booksModel.m; sourceTree = "<group>"; };
+		C83F44FF1D74022500E72375 /* booksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = booksCell.xib; sourceTree = "<group>"; };
+		C83F45031D7483C900E72375 /* textViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textViewController.h; sourceTree = "<group>"; };
+		C83F45041D7483C900E72375 /* textViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textViewController.m; sourceTree = "<group>"; };
+		C8F8E6EC1D75402E001596E4 /* catalogueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = catalogueViewController.h; sourceTree = "<group>"; };
+		C8F8E6ED1D75402E001596E4 /* catalogueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = catalogueViewController.m; sourceTree = "<group>"; };
+		C8F8E6EF1D754049001596E4 /* catalogueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = catalogueTableViewCell.h; sourceTree = "<group>"; };
+		C8F8E6F01D754049001596E4 /* catalogueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = catalogueTableViewCell.m; sourceTree = "<group>"; };
+		C8F8E6F11D754049001596E4 /* catalogueTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = catalogueTableViewCell.xib; sourceTree = "<group>"; };
+		C8F8E6FC1D7559BB001596E4 /* catguloModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = catguloModel.h; sourceTree = "<group>"; };
+		C8F8E6FD1D7559BB001596E4 /* catguloModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = catguloModel.m; sourceTree = "<group>"; };
+		C8F8F0921D7831480079A4AA /* Book+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Book+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C8F8F0931D7831480079A4AA /* Book+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Book+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C8F8F0941D7831480079A4AA /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		C8F8F0951D7831480079A4AA /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		C8F8F0971D7831480079A4AA /* bookCoredata.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bookCoredata.xcdatamodel; sourceTree = "<group>"; };
+		C8F8F0981D7831480079A4AA /* bookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bookViewController.h; sourceTree = "<group>"; };
+		C8F8F0991D7831480079A4AA /* bookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bookViewController.m; sourceTree = "<group>"; };
+		C8F8F09A1D7831480079A4AA /* Chapter+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Chapter+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C8F8F09B1D7831480079A4AA /* Chapter+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Chapter+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C8F8F09C1D7831480079A4AA /* Chapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chapter.h; sourceTree = "<group>"; };
+		C8F8F09D1D7831480079A4AA /* Chapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chapter.m; sourceTree = "<group>"; };
+		C8F8F09E1D7831480079A4AA /* Content+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Content+CoreDataProperties.h"; sourceTree = "<group>"; };
+		C8F8F09F1D7831480079A4AA /* Content+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Content+CoreDataProperties.m"; sourceTree = "<group>"; };
+		C8F8F0A01D7831480079A4AA /* Content.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Content.h; sourceTree = "<group>"; };
+		C8F8F0A11D7831480079A4AA /* Content.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Content.m; sourceTree = "<group>"; };
+		EAEE0A0D98549299803C5C91 /* Pods-阅读器.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-阅读器.release.xcconfig"; path = "Pods/Target Support Files/Pods-阅读器/Pods-阅读器.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +92,97 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3A623F7D49F6FA8B74E79E0 /* Pods____.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F9D0B3F4ED187FEB631BDCA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0EFBEB28AB8E220605C5C903 /* Pods-阅读器.debug.xcconfig */,
+				EAEE0A0D98549299803C5C91 /* Pods-阅读器.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BD4C23E650B85CC2D72880B5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB8C8BACA7DF1970C7EE5127 /* Pods____.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C837A03A1D77082A00339239 /* 网络请求 */ = {
+			isa = PBXGroup;
+			children = (
+				C837A0371D76E92700339239 /* NetWorkTools.h */,
+				C837A0381D76E92700339239 /* NetWorkTools.m */,
+			);
+			name = "网络请求";
+			sourceTree = "<group>";
+		};
+		C837A03E1D77087600339239 /* 分页工具 */ = {
+			isa = PBXGroup;
+			children = (
+				C837A03B1D77087000339239 /* pageSeparationTools.h */,
+				C837A03C1D77087000339239 /* pageSeparationTools.m */,
+			);
+			name = "分页工具";
+			sourceTree = "<group>";
+		};
+		C837A03F1D77088500339239 /* 工具 */ = {
+			isa = PBXGroup;
+			children = (
+				C837A0441D771B3A00339239 /* UIView+Extension.h */,
+				C837A0451D771B3A00339239 /* UIView+Extension.m */,
+				C837A03A1D77082A00339239 /* 网络请求 */,
+				C837A03E1D77087600339239 /* 分页工具 */,
+			);
+			name = "工具";
+			sourceTree = "<group>";
+		};
+		C837A0401D77185700339239 /* infos */ = {
+			isa = PBXGroup;
+			children = (
+				C83F44E21D73E79C00E72375 /* Main.storyboard */,
+				C83F44E51D73E79C00E72375 /* Assets.xcassets */,
+				C83F44E71D73E79C00E72375 /* LaunchScreen.storyboard */,
+				C83F44EA1D73E79C00E72375 /* Info.plist */,
+				C83F44DC1D73E79C00E72375 /* AppDelegate.h */,
+				C83F44DD1D73E79C00E72375 /* AppDelegate.m */,
+			);
+			name = infos;
+			sourceTree = "<group>";
+		};
+		C837A0411D77188000339239 /* 模型 */ = {
+			isa = PBXGroup;
+			children = (
+				C837A0421D77188900339239 /* 目录模型 */,
+				C8F8E6F71D7542C6001596E4 /* 书籍模型 */,
+			);
+			name = "模型";
+			sourceTree = "<group>";
+		};
+		C837A0421D77188900339239 /* 目录模型 */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8E6FC1D7559BB001596E4 /* catguloModel.h */,
+				C8F8E6FD1D7559BB001596E4 /* catguloModel.m */,
+			);
+			name = "目录模型";
+			sourceTree = "<group>";
+		};
 		C83F44CD1D73E79C00E72375 = {
 			isa = PBXGroup;
 			children = (
 				C83F44D81D73E79C00E72375 /* 阅读器 */,
 				C83F44D71D73E79C00E72375 /* Products */,
+				4F9D0B3F4ED187FEB631BDCA /* Pods */,
+				BD4C23E650B85CC2D72880B5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +197,14 @@
 		C83F44D81D73E79C00E72375 /* 阅读器 */ = {
 			isa = PBXGroup;
 			children = (
-				C83F44DC1D73E79C00E72375 /* AppDelegate.h */,
-				C83F44DD1D73E79C00E72375 /* AppDelegate.m */,
-				C83F44DF1D73E79C00E72375 /* ViewController.h */,
-				C83F44E01D73E79C00E72375 /* ViewController.m */,
-				C83F44E21D73E79C00E72375 /* Main.storyboard */,
-				C83F44E51D73E79C00E72375 /* Assets.xcassets */,
-				C83F44E71D73E79C00E72375 /* LaunchScreen.storyboard */,
-				C83F44EA1D73E79C00E72375 /* Info.plist */,
+				C8F8F0911D7831480079A4AA /* Model File */,
+				C837A0401D77185700339239 /* infos */,
+				C8F8E6FB1D7542F9001596E4 /* 控制器 */,
+				C8F8E6F61D7542BE001596E4 /* view */,
+				C837A0411D77188000339239 /* 模型 */,
+				C837A03F1D77088500339239 /* 工具 */,
 				C83F44D91D73E79C00E72375 /* Supporting Files */,
+				C837A0431D7718C500339239 /* PrefixHeader.pch */,
 			);
 			path = "阅读器";
 			sourceTree = "<group>";
@@ -79,6 +217,103 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C8F8E6F41D754295001596E4 /* 目录cell */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8E6EF1D754049001596E4 /* catalogueTableViewCell.h */,
+				C8F8E6F01D754049001596E4 /* catalogueTableViewCell.m */,
+				C8F8E6F11D754049001596E4 /* catalogueTableViewCell.xib */,
+			);
+			name = "目录cell";
+			sourceTree = "<group>";
+		};
+		C8F8E6F51D7542B0001596E4 /* 书籍cell */ = {
+			isa = PBXGroup;
+			children = (
+				C83F44FB1D74022500E72375 /* booksCell.h */,
+				C83F44FC1D74022500E72375 /* booksCell.m */,
+				C83F44FF1D74022500E72375 /* booksCell.xib */,
+			);
+			name = "书籍cell";
+			sourceTree = "<group>";
+		};
+		C8F8E6F61D7542BE001596E4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8E6F41D754295001596E4 /* 目录cell */,
+				C8F8E6F51D7542B0001596E4 /* 书籍cell */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		C8F8E6F71D7542C6001596E4 /* 书籍模型 */ = {
+			isa = PBXGroup;
+			children = (
+				C83F44FD1D74022500E72375 /* booksModel.h */,
+				C83F44FE1D74022500E72375 /* booksModel.m */,
+			);
+			name = "书籍模型";
+			sourceTree = "<group>";
+		};
+		C8F8E6F81D7542D2001596E4 /* 书籍控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				C83F44DF1D73E79C00E72375 /* ViewController.h */,
+				C83F44E01D73E79C00E72375 /* ViewController.m */,
+			);
+			name = "书籍控制器";
+			sourceTree = "<group>";
+		};
+		C8F8E6F91D7542E7001596E4 /* 阅读界面 */ = {
+			isa = PBXGroup;
+			children = (
+				C83F45031D7483C900E72375 /* textViewController.h */,
+				C83F45041D7483C900E72375 /* textViewController.m */,
+			);
+			name = "阅读界面";
+			sourceTree = "<group>";
+		};
+		C8F8E6FA1D7542F2001596E4 /* 目录界面 */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8E6EC1D75402E001596E4 /* catalogueViewController.h */,
+				C8F8E6ED1D75402E001596E4 /* catalogueViewController.m */,
+			);
+			name = "目录界面";
+			sourceTree = "<group>";
+		};
+		C8F8E6FB1D7542F9001596E4 /* 控制器 */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8E6F81D7542D2001596E4 /* 书籍控制器 */,
+				C8F8E6F91D7542E7001596E4 /* 阅读界面 */,
+				C8F8E6FA1D7542F2001596E4 /* 目录界面 */,
+			);
+			name = "控制器";
+			sourceTree = "<group>";
+		};
+		C8F8F0911D7831480079A4AA /* Model File */ = {
+			isa = PBXGroup;
+			children = (
+				C8F8F0921D7831480079A4AA /* Book+CoreDataProperties.h */,
+				C8F8F0931D7831480079A4AA /* Book+CoreDataProperties.m */,
+				C8F8F0941D7831480079A4AA /* Book.h */,
+				C8F8F0951D7831480079A4AA /* Book.m */,
+				C8F8F0961D7831480079A4AA /* bookCoredata.xcdatamodeld */,
+				C8F8F0981D7831480079A4AA /* bookViewController.h */,
+				C8F8F0991D7831480079A4AA /* bookViewController.m */,
+				C8F8F09A1D7831480079A4AA /* Chapter+CoreDataProperties.h */,
+				C8F8F09B1D7831480079A4AA /* Chapter+CoreDataProperties.m */,
+				C8F8F09C1D7831480079A4AA /* Chapter.h */,
+				C8F8F09D1D7831480079A4AA /* Chapter.m */,
+				C8F8F09E1D7831480079A4AA /* Content+CoreDataProperties.h */,
+				C8F8F09F1D7831480079A4AA /* Content+CoreDataProperties.m */,
+				C8F8F0A01D7831480079A4AA /* Content.h */,
+				C8F8F0A11D7831480079A4AA /* Content.m */,
+			);
+			path = "Model File";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +321,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C83F44ED1D73E79C00E72375 /* Build configuration list for PBXNativeTarget "阅读器" */;
 			buildPhases = (
+				CCD045A49FAFD6701115B3A2 /* [CP] Check Pods Manifest.lock */,
 				C83F44D21D73E79C00E72375 /* Sources */,
 				C83F44D31D73E79C00E72375 /* Frameworks */,
 				C83F44D41D73E79C00E72375 /* Resources */,
+				F782527BF4C6A8697296F675 /* [CP] Embed Pods Frameworks */,
+				F5580B2F44086E02D1AACD7F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C83F45021D74022500E72375 /* booksCell.xib in Resources */,
+				C8F8E6F31D754049001596E4 /* catalogueTableViewCell.xib in Resources */,
 				C83F44E91D73E79C00E72375 /* LaunchScreen.storyboard in Resources */,
 				C83F44E61D73E79C00E72375 /* Assets.xcassets in Resources */,
 				C83F44E41D73E79C00E72375 /* Main.storyboard in Resources */,
@@ -144,14 +384,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CCD045A49FAFD6701115B3A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5580B2F44086E02D1AACD7F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-阅读器/Pods-阅读器-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F782527BF4C6A8697296F675 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-阅读器/Pods-阅读器-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C83F44D21D73E79C00E72375 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C837A0391D76E92700339239 /* NetWorkTools.m in Sources */,
+				C8F8E6EE1D75402E001596E4 /* catalogueViewController.m in Sources */,
+				C8F8E6FE1D7559BB001596E4 /* catguloModel.m in Sources */,
+				C8F8F0A91D7831480079A4AA /* Content.m in Sources */,
+				C837A03D1D77087000339239 /* pageSeparationTools.m in Sources */,
+				C83F45001D74022500E72375 /* booksCell.m in Sources */,
 				C83F44E11D73E79C00E72375 /* ViewController.m in Sources */,
+				C837A0461D771B3A00339239 /* UIView+Extension.m in Sources */,
+				C8F8F0A71D7831480079A4AA /* Chapter.m in Sources */,
+				C8F8E6F21D754049001596E4 /* catalogueTableViewCell.m in Sources */,
+				C8F8F0A81D7831480079A4AA /* Content+CoreDataProperties.m in Sources */,
 				C83F44DE1D73E79C00E72375 /* AppDelegate.m in Sources */,
+				C8F8F0A51D7831480079A4AA /* bookViewController.m in Sources */,
+				C8F8F0A41D7831480079A4AA /* bookCoredata.xcdatamodeld in Sources */,
+				C8F8F0A21D7831480079A4AA /* Book+CoreDataProperties.m in Sources */,
+				C83F45051D7483C900E72375 /* textViewController.m in Sources */,
 				C83F44DB1D73E79C00E72375 /* main.m in Sources */,
+				C8F8F0A31D7831480079A4AA /* Book.m in Sources */,
+				C8F8F0A61D7831480079A4AA /* Chapter+CoreDataProperties.m in Sources */,
+				C83F45011D74022500E72375 /* booksModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +507,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -245,6 +551,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -261,8 +568,10 @@
 		};
 		C83F44EE1D73E79C00E72375 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EFBEB28AB8E220605C5C903 /* Pods-阅读器.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/xiong/Documents/学习代码/阅读器/阅读器/PrefixHeader.pch";
 				INFOPLIST_FILE = "阅读器/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiong.marry.---";
@@ -272,8 +581,10 @@
 		};
 		C83F44EF1D73E79C00E72375 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAEE0A0D98549299803C5C91 /* Pods-阅读器.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "/Users/xiong/Documents/学习代码/阅读器/阅读器/PrefixHeader.pch";
 				INFOPLIST_FILE = "阅读器/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xiong.marry.---";
@@ -300,8 +611,22 @@
 				C83F44EF1D73E79C00E72375 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C8F8F0961D7831480079A4AA /* bookCoredata.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C8F8F0971D7831480079A4AA /* bookCoredata.xcdatamodel */,
+			);
+			currentVersion = C8F8F0971D7831480079A4AA /* bookCoredata.xcdatamodel */;
+			path = bookCoredata.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C83F44CE1D73E79C00E72375 /* Project object */;
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Xcode 7.0">
+    <entity name="Book" representedClassName="Book" syncable="YES">
+        <attribute name="bookmake" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="booksName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="booksUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="haveUP" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="lastChapter" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chapter" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Chapter" inverseName="book" inverseEntity="Chapter" syncable="YES"/>
+    </entity>
+    <entity name="Chapter" representedClassName="Chapter" syncable="YES">
+        <attribute name="chapterString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="chapterUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="chapter" inverseEntity="Book" syncable="YES"/>
+        <relationship name="content" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Content" inverseName="chapter" inverseEntity="Content" syncable="YES"/>
+    </entity>
+    <entity name="Content" representedClassName="Content" syncable="YES">
+        <attribute name="contentString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="chapter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Chapter" inverseName="content" inverseEntity="Chapter" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Chapter" positionX="144" positionY="30" width="128" height="103"/>
+        <element name="Content" positionX="351" positionY="126" width="128" height="73"/>
+    </elements>
+</model>

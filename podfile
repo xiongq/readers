@@ -1,0 +1,9 @@
+target ‘阅读器' do
+ use_frameworks!
+pod 'Ono'
+pod "MagicalRecord"
+pod 'AFNetworking'
+pod 'MJExtension'
+pod 'MBProgressHUD'
+end
+
