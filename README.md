@@ -1,5 +1,6 @@
 # readers
-基于http://m.ybdu.com/网站小说解析
+基于http://m.ybdu.com/网
+\n站小说解析
 如有侵权、务必通知删除
 第一次尝试解析小说网站
 实现以下 功能
