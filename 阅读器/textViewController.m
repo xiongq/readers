@@ -172,17 +172,19 @@
                     if (offsetx + screenW > ([pageSeparationTools sharepageSeparationTools].pageArray.count -1) *screenW) {
                         [self newChapterContent];
                     }else{
-                        [UIView animateWithDuration:0.2 animations:^{
-                            [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
-                        }];
+//                        [UIView animateWithDuration:0.2 animations:^{
+//                            [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
+//                        }];
+                         [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
                     }
     }else if (CGRectContainsPoint(leftTap, tapPoint)){
         NSLog(@"左");
         [self hidenTools];
          if (offsetx - screenW >= 0) {
-                [UIView animateWithDuration:0.2 animations:^{
-                 [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
-          }];
+              [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
+//                [UIView animateWithDuration:0.2 animations:^{
+//                 [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
+//          }];
          }else{
                  [self upChapterContent];
           }
@@ -302,6 +304,8 @@
             self.txtView.editable = NO;
             self.txtView.backgroundColor = [UIColor clearColor];
             self.txtView.attributedText = arr[i];
+            self.txtView.scrollEnabled = NO;
+            self.txtView.userInteractionEnabled = NO;
 //            UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesrecognizer:)];
 //            [self.txtView addGestureRecognizer:recognizer];
             [self.textsScroller addSubview:self.txtView];
@@ -343,12 +347,18 @@
 //            NSLog(@"test---%lu",(unsigned long)indexs);
         }
     }else{
+        if (self.model.booksUrl == nil) {
+            return;
+        }
         [[NetWorkTools shareNetWorkTools] booksFirstReadChapterWithBookurl:self.model.booksUrl GET: [@"http://m.ybdu.com"  stringByAppendingString:[self.model.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"] ] Succees:^(NSArray *books) {
-
+            NSArray *tt = books;
+            for (Chapter *res in tt) {
+                NSLog(@"%@%@",res.chapterUrl,res.chapterString);
+            }
             Chapter  *model = books.firstObject;
             indexs = [books indexOfObject:model];
             self.capArray = (NSMutableArray *)books;
-
+            NSLog(@"%@%@",self.model.booksUrl,model.chapterUrl);
             NSString *chap = [[@"http://m.ybdu.com"  stringByAppendingString:[self.model.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"] ] stringByAppendingString:model.chapterUrl];
 
             [[NetWorkTools shareNetWorkTools] bookChapterContentGET:chap Succees:^(id books) {

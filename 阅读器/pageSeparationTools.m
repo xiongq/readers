@@ -54,15 +54,19 @@ static pageSeparationTools *shareInstance = nil;
         self.lineSpace = 15;
     }
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-    paragraphStyle.lineHeightMultiple  = 1.f;                    // 可变行高,乘因数
+//    paragraphStyle.lineHeightMultiple  = 5.f;                    // 可变行高,乘因数
     paragraphStyle.lineSpacing         = _lineSpace;                    // 行间距
     paragraphStyle.minimumLineHeight   = 10.f;                   // 最小行高
     paragraphStyle.maximumLineHeight   = 20.f;                   // 最大行高
-    paragraphStyle.paragraphSpacing    = 0.f;                   // 段间距
-    paragraphStyle.alignment           = NSTextAlignmentLeft;    // 对齐方式
-    paragraphStyle.firstLineHeadIndent = 30.f;                   // 段落首文字离边缘间距
-    paragraphStyle.headIndent          = 0.f;                    // 段落除了第一行的其他文字离边缘间距
-    paragraphStyle.tailIndent          = 0.f;                    // ???????
+//    paragraphStyle.paragraphSpacing    = 0.f;                   // 段间距
+    paragraphStyle.alignment           = NSTextAlignmentJustified;    // 对齐方式
+    paragraphStyle.firstLineHeadIndent = 30.f;                      // 段落首文字离边缘间距
+//    paragraphStyle.paragraphSpacingBefore = 30.f;                   //段首空白
+    paragraphStyle.paragraphSpacing =   0;                          //段间距
+//    paragraphStyle.headIndent          = 10.f;                    // 段落除了第一行的其他文字离边缘间距
+
+//    paragraphStyle.hyphenationFactor = 0;
+
     return  @{NSFontAttributeName:[UIFont systemFontOfSize:_fontsize],NSParagraphStyleAttributeName : paragraphStyle};
 
 }
@@ -80,7 +84,7 @@ static pageSeparationTools *shareInstance = nil;
     NSLayoutManager *layoutManger = [NSLayoutManager new];
     [textStrong addLayoutManager:layoutManger];
     while (YES) {
-        NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(screenW -90, screenH - 100)];
+        NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(screenW -60, screenH - 70)];
         [layoutManger addTextContainer:textContainer];
         NSRange range = [layoutManger glyphRangeForTextContainer:textContainer];
         if (range.length <= 0) {

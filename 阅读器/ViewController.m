@@ -23,22 +23,39 @@
 @implementation ViewController
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self booksUpdate];
 
 }
 - (IBAction)coredata:(id)sender {
-    NSArray *tt = [Chapter MR_findByAttribute:@"book.booksUrl" withValue:@"/xiazai/14/14062/" andOrderBy:@"chapterUrl" ascending:YES];
-    NSLog(@"tttttttt%lu",(unsigned long)tt.count);
+
+//    NSStringEncoding enc= CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
+//
+//    NSData *body = [@"searchtype=articlename&searchkey=全职法师&submit=" dataUsingEncoding:enc];
+//
+//    NSURL *url = [NSURL URLWithString:@"http://m.ybdu.com/modules/article/search.php"];
+//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+//    [request setHTTPMethod:@"POST"];
+//    [request setHTTPBody:body];
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    // 4.2、 创建数据请求任务
+//    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//        NSString * newStr = [[NSString alloc] initWithData:data  encoding:enc];
+//        NSLog(@"新请求结果%@",newStr);
+//        NSLog(@"%@",[NSThread currentThread]);
+//    }];
+//    // 4.3、 启动任务
+//    [task resume];
 
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.booklistView registerNib:[UINib nibWithNibName:@"booksCell" bundle:nil] forCellReuseIdentifier:@"bookscell"];
-
+    self.booklistView.tableFooterView = [UIView new];
     self.dataSoure = (NSMutableArray *)[Book MR_findAllSortedBy:@"booksName:YES" ascending:NO];
 
 
-    if (self.dataSoure.count != 0) {
+  /*  if (self.dataSoure.count != 0) {
 //        self.dataSoure = [NSMutableArray new];
 //        [books enumerateObjectsUsingBlock:^(Book *obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //            NSLog(@"books-name%@ url--%@",obj.booksName,obj.booksUrl);
@@ -59,7 +76,7 @@
         }];
 
 
-    }
+    }*/
 
     [self booksUpdate];
     

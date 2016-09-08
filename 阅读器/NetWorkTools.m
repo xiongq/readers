@@ -118,11 +118,13 @@ static NSStringEncoding encUTF8;
     ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithString:[[NSString alloc] initWithData:response encoding:encUTF8] encoding:NSUTF8StringEncoding error:&error];
     [document enumerateElementsWithCSS:@".mulu_list" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
         for (ONOXMLElement *temp in element.children) {
-//            catguloModel *model = [catguloModel new];
+
             Chapter *chaper = [Chapter MR_createEntity];
             chaper.chapterUrl = temp.children.firstObject[@"href"];
             chaper.chapterString = [temp stringValue];
-            [bookslist addObject:chaper];
+            if (chaper.chapterUrl && chaper.chapterString) {
+                [bookslist addObject:chaper];
+            }
         }
     }];
     return bookslist;
@@ -135,6 +137,7 @@ static NSStringEncoding encUTF8;
 //    NSLog(@"%@",[[NSString alloc] initWithData:response encoding:encUTF8]);
     Book *booksCoreDate = [Book MR_findFirstByAttribute:@"booksUrl" withValue:url];
     ONOXMLDocument *document = [ONOXMLDocument XMLDocumentWithString:[[NSString alloc] initWithData:response encoding:encUTF8] encoding:NSUTF8StringEncoding error:&error];
+//    [bookslist enumerateObjectsUsingBlock:<#^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)block#>]
     [document enumerateElementsWithCSS:@".chapter li" usingBlock:^(ONOXMLElement *element, NSUInteger idx, BOOL *stop) {
         NSLog(@"elem%@--",element.children.firstObject[@"href"]);
          NSManagedObjectContext *defaultContext = [NSManagedObjectContext MR_defaultContext];
@@ -142,9 +145,13 @@ static NSStringEncoding encUTF8;
             Chapter *chap = [Chapter MR_createEntityInContext:defaultContext];
             chap.chapterUrl = element.children.firstObject[@"href"];
             chap.chapterString = [element stringValue];
-            [booksCoreDate addChapterObject:chap];
 
-        [defaultContext MR_saveToPersistentStoreAndWait];
+        if (chap.chapterUrl && chap.chapterString) {
+
+            [booksCoreDate addChapterObject:chap];
+            [defaultContext MR_saveToPersistentStoreAndWait];
+        }
+
     }];
     return [Chapter MR_findByAttribute:@"book.booksUrl" withValue:url andOrderBy:@"chapterUrl" ascending:YES];;
     
@@ -238,6 +245,7 @@ static NSStringEncoding encUTF8;
     if (books.count == 0) return;
    __block NSUInteger index;
     for (Book *temp in books) {
+        NSLog(@"bookurl%@",temp.booksUrl);
 
         [self booksLastChapterGET:[@"http://www.ybdu.com/" stringByAppendingString:[temp.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"]] Succees:^(NSString *ChapterName) {
             index++;
