@@ -22,6 +22,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.catalogueListView registerNib:[UINib nibWithNibName:@"catalogueTableViewCell" bundle:nil] forCellReuseIdentifier:@"catalogue"];
+//    [self.catalogueListView setContentOffset:CGPointMake(self.catalogueListView.rowHeight * _index, 0)];
+    NSUInteger currindex = self.catalogueListView.height / self.catalogueListView.rowHeight*0.7 + _index;
+    [self.catalogueListView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:currindex inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,8 +40,12 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     catalogueTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"catalogue" forIndexPath:indexPath];
     Chapter  *element = self.catalogueArray[indexPath.row];
+    if (_index == indexPath.row) {
+        cell.catalogueLabei.textColor = [UIColor redColor];
+    }else{
+        cell.catalogueLabei.textColor = [UIColor blackColor];
+    }
     cell.model = element;
-
     return cell;
 
 }
@@ -48,11 +55,14 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     catalogueTableViewCell *cell = (catalogueTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"cell----%@",cell.catalogueLabei.text);
-
     [self.delegate backChapter:cell.model];
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
+//-(BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath{
+//    NSLog(@"%@",indexPath);
+//    return YES;
+//}
 /*
 #pragma mark - Navigation
 

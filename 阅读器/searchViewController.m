@@ -45,25 +45,24 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     searchModel *model = self.dataSource[indexPath.row];
-    NSArray *temp = [Book MR_findAll];
-    if (temp.count == 0) {
-        Book *book = [Book MR_createEntity];
-        book.booksUrl = model.bookURL;
-        book.booksName = model.bookName;
-        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-        textViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"textvc"];
+//    NSArray *temp = [Book MR_findAll];
+/*
+    1.先判断数据库中有木有
+    有-》就直接跳
+    没有-》保存跳
+ */
+    textViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"textvc"];
+    Book *book = [Book MR_findFirstByAttribute:@"booksUrl" withValue:model.bookURL];
+    if (book) {
         vc.model = book;
-        [self presentViewController:vc animated:YES completion:nil];
     }else{
-        [temp enumerateObjectsUsingBlock:^(Book *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if (obj.booksUrl != model.bookURL && obj.booksName != model.bookName) {
-                textViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"textvc"];
-                vc.model = obj;
-                [self presentViewController:vc animated:YES completion:nil];
-            }
-        }];
+        Book *newBook = [Book MR_createEntity];
+        newBook.booksUrl = model.bookURL;
+        newBook.booksName = model.bookName;
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+        vc.model = newBook;
     }
-
+    [self presentViewController:vc animated:YES completion:nil];
 
 }
 

@@ -131,8 +131,8 @@
     [self showTools];
     catalogueViewController *vc = segue.destinationViewController;
     vc.delegate = self;
-//    NSArray *tt = [Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
     vc.catalogueArray = self.capArray;
+    vc.index = indexs;
 
 }
 -(void)backChapter:(Chapter *)chapter{
@@ -195,45 +195,6 @@
 
     }
 
-//    if ([self allowTouch]) {
-//        NSLog(@"keyi----------");
-//    }else{
-//        NSLog(@"no***********");
-//        return;
-//    }
-//    CGFloat offsetx = self.textsScroller.contentOffset.x;
-
-//    switch (btn.tag) {
-//        case 1000:
-//             NSLog(@"左");
-//            [self hidenTools];
-//            if (offsetx - screenW >= 0) {
-//                [UIView animateWithDuration:0.2 animations:^{
-//                    [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
-//                }];
-//            }else{
-//                [self upChapterContent];
-//            }
-//            break;
-//        case 1001:
-//            NSLog(@"中");
-//            [self showTools];
-//            break;
-//        case 1002:
-//            NSLog(@"右");
-//            [self hidenTools];
-//            if (offsetx + screenW > ([pageSeparationTools sharepageSeparationTools].pageArray.count -1) *screenW) {
-//                [self newChapterContent];
-//            }else{
-//                [UIView animateWithDuration:0.2 animations:^{
-//                    [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
-//                }];
-//            }
-//
-//            break;
-//        default:
-//            break;
-//    }
 
 }
 - (void)viewDidLoad {

@@ -36,7 +36,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="阅读" id="9wg-m7-0YY">
-                        <barButtonItem key="rightBarButtonItem" title="COREDATA" id="QRM-0s-xnE">
+                        <barButtonItem key="rightBarButtonItem" title="🔍" id="QRM-0s-xnE">
                             <connections>
                                 <action selector="coredata:" destination="BYZ-38-t0r" id="kba-ft-DcU"/>
                                 <segue destination="3lO-9r-nKy" kind="push" id="phd-K2-Njw"/>

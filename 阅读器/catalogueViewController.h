@@ -14,5 +14,6 @@
 @end
 @interface catalogueViewController : UIViewController
 @property(copy, nonatomic)  NSArray *catalogueArray;
+@property(assign, nonatomic)  NSUInteger  index;
 @property(strong, nonatomic) id<backChapterDelegate>delegate;
 @end
