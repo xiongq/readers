@@ -45,6 +45,11 @@ static pageSeparationTools *shareInstance = nil;
     self.fontsize--;
    return [self pageSeparationWithSting:tempSTR];
 }
+-(NSMutableArray *)upRestoreFont{
+    self.fontsize = 15;
+    return [self pageSeparationWithSting:tempSTR];
+}
+
 -(NSDictionary *)lineSpace:(CGFloat)lineSpace fontSize:(CGFloat)fontsize{
 
     if (self.fontsize == 0) {

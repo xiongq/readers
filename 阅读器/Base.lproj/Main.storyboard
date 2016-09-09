@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X0M-4G-qhj">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.86746197938919067" green="0.82709425687789917" blue="0.69189321994781494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="wsT-YE-Sib"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="NZk-Nx-Fhy"/>
@@ -36,6 +36,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="阅读" id="9wg-m7-0YY">
+                        <barButtonItem key="leftBarButtonItem" title="推荐" id="1z0-of-tyy">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="🔍" id="QRM-0s-xnE">
                             <connections>
                                 <action selector="coredata:" destination="BYZ-38-t0r" id="kba-ft-DcU"/>
@@ -141,7 +144,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.86746197938919067" green="0.82709425687789917" blue="0.69189321994781494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J6X-9W-GTq" firstAttribute="top" secondItem="5M4-Q7-kzE" secondAttribute="bottom" constant="10" id="1fr-ks-p31"/>
                             <constraint firstItem="ggp-MH-urT" firstAttribute="top" secondItem="J6X-9W-GTq" secondAttribute="bottom" constant="10" id="4mH-jN-uMU"/>

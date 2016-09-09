@@ -12,6 +12,10 @@
 		C8315F711D806D8A00A805D7 /* searchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8315F701D806D8A00A805D7 /* searchViewController.m */; };
 		C8315F751D806EE500A805D7 /* searchBookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8315F731D806EE500A805D7 /* searchBookCell.m */; };
 		C8315F761D806EE500A805D7 /* searchBookCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8315F741D806EE500A805D7 /* searchBookCell.xib */; };
+		C835FAD81D825FC7003255D8 /* fontChangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C835FAD71D825FC7003255D8 /* fontChangeView.m */; };
+		C835FADA1D825FE5003255D8 /* fontChangeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C835FAD91D825FE5003255D8 /* fontChangeView.xib */; };
+		C835FADC1D827AFC003255D8 /* colorTools.xib in Resources */ = {isa = PBXBuildFile; fileRef = C835FADB1D827AFC003255D8 /* colorTools.xib */; };
+		C835FADF1D827C91003255D8 /* colorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C835FADE1D827C91003255D8 /* colorTools.m */; };
 		C837A0391D76E92700339239 /* NetWorkTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A0381D76E92700339239 /* NetWorkTools.m */; };
 		C837A03D1D77087000339239 /* pageSeparationTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A03C1D77087000339239 /* pageSeparationTools.m */; };
 		C837A0461D771B3A00339239 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = C837A0451D771B3A00339239 /* UIView+Extension.m */; };
@@ -49,6 +53,12 @@
 		C8315F721D806EE500A805D7 /* searchBookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchBookCell.h; sourceTree = "<group>"; };
 		C8315F731D806EE500A805D7 /* searchBookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchBookCell.m; sourceTree = "<group>"; };
 		C8315F741D806EE500A805D7 /* searchBookCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = searchBookCell.xib; sourceTree = "<group>"; };
+		C835FAD61D825FC7003255D8 /* fontChangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontChangeView.h; sourceTree = "<group>"; };
+		C835FAD71D825FC7003255D8 /* fontChangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fontChangeView.m; sourceTree = "<group>"; };
+		C835FAD91D825FE5003255D8 /* fontChangeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fontChangeView.xib; sourceTree = "<group>"; };
+		C835FADB1D827AFC003255D8 /* colorTools.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = colorTools.xib; sourceTree = "<group>"; };
+		C835FADD1D827C91003255D8 /* colorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorTools.h; sourceTree = "<group>"; };
+		C835FADE1D827C91003255D8 /* colorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorTools.m; sourceTree = "<group>"; };
 		C837A0371D76E92700339239 /* NetWorkTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkTools.h; sourceTree = "<group>"; };
 		C837A0381D76E92700339239 /* NetWorkTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkTools.m; sourceTree = "<group>"; };
 		C837A03B1D77087000339239 /* pageSeparationTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pageSeparationTools.h; sourceTree = "<group>"; };
@@ -127,6 +137,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C835FAD31D825F81003255D8 /* 搜索界面 */ = {
+			isa = PBXGroup;
+			children = (
+				C8315F6F1D806D8A00A805D7 /* searchViewController.h */,
+				C8315F701D806D8A00A805D7 /* searchViewController.m */,
+			);
+			name = "搜索界面";
+			sourceTree = "<group>";
+		};
+		C835FAD41D825F8C003255D8 /* 搜索模型 */ = {
+			isa = PBXGroup;
+			children = (
+				C8030A971D8170CC0075767D /* searchModel.h */,
+				C8030A981D8170CC0075767D /* searchModel.m */,
+			);
+			name = "搜索模型";
+			sourceTree = "<group>";
+		};
+		C835FAD51D825F95003255D8 /* 搜索cell */ = {
+			isa = PBXGroup;
+			children = (
+				C8315F721D806EE500A805D7 /* searchBookCell.h */,
+				C8315F731D806EE500A805D7 /* searchBookCell.m */,
+				C8315F741D806EE500A805D7 /* searchBookCell.xib */,
+			);
+			name = "搜索cell";
+			sourceTree = "<group>";
+		};
 		C837A03A1D77082A00339239 /* 网络请求 */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +210,7 @@
 		C837A0411D77188000339239 /* 模型 */ = {
 			isa = PBXGroup;
 			children = (
+				C835FAD41D825F8C003255D8 /* 搜索模型 */,
 				C837A0421D77188900339239 /* 目录模型 */,
 				C8F8E6F71D7542C6001596E4 /* 书籍模型 */,
 			);
@@ -251,8 +290,15 @@
 		C8F8E6F61D7542BE001596E4 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C835FAD51D825F95003255D8 /* 搜索cell */,
 				C8F8E6F41D754295001596E4 /* 目录cell */,
 				C8F8E6F51D7542B0001596E4 /* 书籍cell */,
+				C835FAD61D825FC7003255D8 /* fontChangeView.h */,
+				C835FAD71D825FC7003255D8 /* fontChangeView.m */,
+				C835FAD91D825FE5003255D8 /* fontChangeView.xib */,
+				C835FADB1D827AFC003255D8 /* colorTools.xib */,
+				C835FADD1D827C91003255D8 /* colorTools.h */,
+				C835FADE1D827C91003255D8 /* colorTools.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -299,13 +345,7 @@
 				C8F8E6F81D7542D2001596E4 /* 书籍控制器 */,
 				C8F8E6F91D7542E7001596E4 /* 阅读界面 */,
 				C8F8E6FA1D7542F2001596E4 /* 目录界面 */,
-				C8315F6F1D806D8A00A805D7 /* searchViewController.h */,
-				C8315F701D806D8A00A805D7 /* searchViewController.m */,
-				C8030A971D8170CC0075767D /* searchModel.h */,
-				C8030A981D8170CC0075767D /* searchModel.m */,
-				C8315F721D806EE500A805D7 /* searchBookCell.h */,
-				C8315F731D806EE500A805D7 /* searchBookCell.m */,
-				C8315F741D806EE500A805D7 /* searchBookCell.xib */,
+				C835FAD31D825F81003255D8 /* 搜索界面 */,
 			);
 			name = "控制器";
 			sourceTree = "<group>";
@@ -395,10 +435,12 @@
 			files = (
 				C8315F761D806EE500A805D7 /* searchBookCell.xib in Resources */,
 				C83F45021D74022500E72375 /* booksCell.xib in Resources */,
+				C835FADA1D825FE5003255D8 /* fontChangeView.xib in Resources */,
 				C8F8E6F31D754049001596E4 /* catalogueTableViewCell.xib in Resources */,
 				C83F44E91D73E79C00E72375 /* LaunchScreen.storyboard in Resources */,
 				C83F44E61D73E79C00E72375 /* Assets.xcassets in Resources */,
 				C83F44E41D73E79C00E72375 /* Main.storyboard in Resources */,
+				C835FADC1D827AFC003255D8 /* colorTools.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +502,11 @@
 				C837A0391D76E92700339239 /* NetWorkTools.m in Sources */,
 				C8F8E6EE1D75402E001596E4 /* catalogueViewController.m in Sources */,
 				C8F8E6FE1D7559BB001596E4 /* catguloModel.m in Sources */,
+				C835FAD81D825FC7003255D8 /* fontChangeView.m in Sources */,
 				C8F8F0A91D7831480079A4AA /* Content.m in Sources */,
 				C837A03D1D77087000339239 /* pageSeparationTools.m in Sources */,
 				C8315F711D806D8A00A805D7 /* searchViewController.m in Sources */,
+				C835FADF1D827C91003255D8 /* colorTools.m in Sources */,
 				C83F45001D74022500E72375 /* booksCell.m in Sources */,
 				C83F44E11D73E79C00E72375 /* ViewController.m in Sources */,
 				C837A0461D771B3A00339239 /* UIView+Extension.m in Sources */,

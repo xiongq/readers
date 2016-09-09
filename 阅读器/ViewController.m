@@ -53,7 +53,7 @@
     [self.booklistView registerNib:[UINib nibWithNibName:@"booksCell" bundle:nil] forCellReuseIdentifier:@"bookscell"];
     self.booklistView.tableFooterView = [UIView new];
     self.dataSoure = (NSMutableArray *)[Book MR_findAllSortedBy:@"booksName:YES" ascending:NO];
-
+//    self.booklistView.backgroundColor = [UIColor lightGrayColor];
 
   /*  if (self.dataSoure.count != 0) {
 //        self.dataSoure = [NSMutableArray new];

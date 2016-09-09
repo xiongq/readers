@@ -101,8 +101,17 @@
 }
 
 -(void)startNetworkwithString:(NSString *)searchText{
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    MBProgressHUD *hub = [[MBProgressHUD alloc] initWithWindow:window];
+    hub.mode = MBProgressHUDModeIndeterminate;
+    [window addSubview:hub];
+    dispatch_async(dispatch_get_main_queue(), ^{
+            [hub show:YES];
+    });
+
 
     NSMutableArray *tempArray = [NSMutableArray new];
+
 
         NSStringEncoding enc= CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
 //    [NSString stringWithFormat:@"searchtype=articlename&searchkey=%@&submit=",searchText];
@@ -197,6 +206,7 @@
             self.dataSource = tempArray;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.searchTableview  reloadData];
+                 [hub hide:YES];
             });
 
 

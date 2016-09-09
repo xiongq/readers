@@ -14,7 +14,10 @@
 #import "NetWorkTools.h"
 #import "pageSeparationTools.h"
 
-@interface textViewController ()<UIScrollViewDelegate,backChapterDelegate>
+#import "fontChangeView.h"
+#import "colorTools.h"
+
+@interface textViewController ()<UIScrollViewDelegate,backChapterDelegate,colorSelectDelegate,changeFontDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *textsScroller;
 @property (weak, nonatomic) IBOutlet UILabel *booksName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topView;
@@ -26,7 +29,9 @@
 @property (strong,nonatomic) UITextView *txtView;
 @property (strong, nonatomic) UILabel *chapterLabei;
 @property (strong, nonatomic) UILabel *pageNumber;
-
+@property (strong, nonatomic) fontChangeView *fontView;
+@property (strong, nonatomic) colorTools *colortView;
+@property (strong, nonatomic) MBProgressHUD *hub;
 
 @end
 
@@ -37,6 +42,38 @@
     BOOL  allowEnable;
     uint64_t lastDate;
     uint64_t nowDate;
+}
+#pragma mark - 懒加载
+-(MBProgressHUD *)hub{
+    if (!_hub) {
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        _hub = [[MBProgressHUD alloc] initWithWindow:window];
+        _hub.mode = MBProgressHUDModeIndeterminate;
+        [window addSubview:_hub];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [hub show:YES];
+//        });
+    }
+    return _hub;
+
+}
+-(colorTools *)colortView{
+    if (!_colortView) {
+        _colortView = [[NSBundle mainBundle] loadNibNamed:@"colorTools" owner:self options:nil][0];
+
+        _colortView.frame = CGRectMake(0, screenH, screenW, 80);
+
+    }
+    return _colortView;
+
+}
+-(fontChangeView *)fontView{
+    if (!_fontView) {
+        _fontView = [[NSBundle mainBundle] loadNibNamed:@"fontChangeView" owner:self options:nil][0];
+        _fontView.frame = CGRectMake(0, screenH, screenW, 80);
+
+    }
+    return _fontView;
 }
 -(UILabel *)chapterLabei{
     if (!_chapterLabei) {
@@ -60,6 +97,23 @@
     return _pageNumber;
 
 }
+/**
+ *  初始化scrollview
+ */
+-(void)allocScrollview{
+    self.booksName.text = _model.booksName;
+    self.textsScroller.pagingEnabled = YES;
+    self.textsScroller.delegate = self;
+    self.textsScroller.decelerationRate = 0.1f;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchPage:)];
+    [self.textsScroller addGestureRecognizer:tap];
+
+    [self.view bringSubviewToFront:self.topViews];
+    [self.view bringSubviewToFront:self.toolsView];
+    
+}
+
+#pragma mark - 工具按键点击
 //关闭阅读界面
 - (IBAction)close:(id)sender {
     [self saveMark];
@@ -67,20 +121,19 @@
 }
 //设置字体
 - (IBAction)font:(id)sender {
-    if ([self fontChange]) {
-          [self textViewChangeWithArray:[[pageSeparationTools sharepageSeparationTools] upBIGFont]];
-        self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu" ,(NSUInteger)self.textsScroller.contentOffset.x/(NSUInteger)screenW +1,[pageSeparationTools sharepageSeparationTools].pageArray.count];
-        }
+
+    self.colortView.y = screenH;
+    self.fontView.y = screenH -122;
+
 }
+
 //设置背景色
 - (IBAction)background:(id)sender {
-
-    self.textsScroller.backgroundColor = [UIColor brownColor];
+    self.colortView.y = screenH-122;
+    self.fontView.y = screenH;
 }
 //缓存
 - (IBAction)download:(id)sender {
-
-    
     [self chapterCacheAlert];
 }
 //目录
@@ -88,56 +141,6 @@
 }
 //夜间
 - (IBAction)night:(id)sender {
-
-}
--(BOOL)fontChange{
-    pageSeparationTools *tools = [pageSeparationTools sharepageSeparationTools];
-    if (tools.fontsize >=20 || tools.fontsize <10){
-        return NO;
-    }else{
-        return YES;
-    }
-}
-
-//显示或者隐藏菜单
--(void)showTools{
-    if (self.topView.constant == -84) {
-
-        self.topView.constant = -20;
-        self.toolsBottomLayout.constant = 0;
-    }else{
-        self.topView.constant = -84;
-        self.toolsBottomLayout.constant = -44;
-    }
-
-    [UIView animateWithDuration:0.3 animations:^{
-
-        [self.view layoutIfNeeded];
-    }];
-
-}
--(void)hidenTools{
-    if (self.toolsBottomLayout.constant == 0) {
-        self.topView.constant = -84;
-        self.toolsBottomLayout.constant = -44;
-    }
-    [UIView animateWithDuration:0.3 animations:^{
-
-        [self.view layoutIfNeeded];
-    }];
-}
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    [self showTools];
-    catalogueViewController *vc = segue.destinationViewController;
-    vc.delegate = self;
-    vc.catalogueArray = self.capArray;
-    vc.index = indexs;
-
-}
--(void)backChapter:(Chapter *)chapter{
-    NSLog(@"chapter%@",chapter.chapterString);
-    [self backChapterContent:chapter];
 
 }
 -(BOOL)allowTouch{
@@ -151,15 +154,15 @@
     return allow;
 }
 -(void)touchPage:(UITapGestureRecognizer *)tap{
-// 获取点击位置
+    // 获取点击位置
     CGPoint tapPoint = [tap locationInView:self.textsScroller];
     tapPoint.x = (NSUInteger)tapPoint.x%(NSUInteger)screenW;
-// 创建3个点击区域
-//  左边
+    // 创建3个点击区域
+    //  左边
     CGRect leftTap   = CGRectMake(0, 0, screenW/5*2, screenH);
-// 中间
+    // 中间
     CGRect centerTap = CGRectMake(screenW/5*2, 0, screenW/5, screenH);
-// 右边
+    // 右边
     CGRect rightTap  = CGRectMake(screenW/5*3, 0, screenW/5*2, screenH);
 
 
@@ -169,59 +172,163 @@
 
         NSLog(@"右");
         [self hidenTools];
-                    if (offsetx + screenW > ([pageSeparationTools sharepageSeparationTools].pageArray.count -1) *screenW) {
-                        [self newChapterContent];
-                    }else{
-//                        [UIView animateWithDuration:0.2 animations:^{
-//                            [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
-//                        }];
-                         [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
-                    }
+        if (offsetx + screenW > ([pageSeparationTools sharepageSeparationTools].pageArray.count -1) *screenW) {
+            [self newChapterContent];
+        }else{
+            //                        [UIView animateWithDuration:0.2 animations:^{
+            //                            [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
+            //                        }];
+            [self.textsScroller setContentOffset:CGPointMake(offsetx + screenW, 0)];
+        }
     }else if (CGRectContainsPoint(leftTap, tapPoint)){
         NSLog(@"左");
         [self hidenTools];
-         if (offsetx - screenW >= 0) {
-              [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
-//                [UIView animateWithDuration:0.2 animations:^{
-//                 [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
-//          }];
-         }else{
-                 [self upChapterContent];
-          }
+        if (offsetx - screenW >= 0) {
+            [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
+            //                [UIView animateWithDuration:0.2 animations:^{
+            //                 [self.textsScroller setContentOffset:CGPointMake(offsetx - screenW, 0)];
+            //          }];
+        }else{
+            [self upChapterContent];
+        }
 
     }else if (CGRectContainsPoint(centerTap, tapPoint)){
         NSLog(@"中");
         [self showTools];
+        
+    }
+    
+    
+}
+//字体大小判断
+-(BOOL)fontChange{
+    pageSeparationTools *tools = [pageSeparationTools sharepageSeparationTools];
+    if (tools.fontsize >=20 || tools.fontsize <10){
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
+//显示或者隐藏菜单
+-(void)showTools{
+
+    if (self.topView.constant == -84) {
+
+        self.topView.constant = -20;
+        self.toolsBottomLayout.constant = 0;
+//        self.fontView.y = screenH;
+        [UIView animateWithDuration:0.3 animations:^{
+             self.fontView.y = screenH -80-44;
+            self.colortView.y = screenH;
+//            self.fontView.y = screenH -122;
+        }];
+    }else{
+
+        self.topView.constant = -84;
+        self.toolsBottomLayout.constant = -44;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.fontView.y = screenH;
+            self.colortView.y = screenH;
+//            self.fontView.y = screenH -122;
+        }];
 
     }
 
+    [UIView animateWithDuration:0.3 animations:^{
+//        self.fontView.y = 0;
+        [self.view layoutIfNeeded];
+    }];
 
 }
+-(void)hidenTools{
+    if (self.toolsBottomLayout.constant == 0) {
+        self.topView.constant = -84;
+        self.toolsBottomLayout.constant = -44;
+
+    }
+    [UIView animateWithDuration:0.3 animations:^{
+        self.fontView.y   = screenH;
+        self.colortView.y = screenH;
+        [self.view layoutIfNeeded];
+    }];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [self showTools];
+    catalogueViewController *vc = segue.destinationViewController;
+    vc.delegate = self;
+    vc.catalogueArray = self.capArray;
+    vc.index = indexs;
+
+}
+#pragma mark - 一些委托
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSUInteger offsex = scrollView.contentOffset.x;
+
+    if (offsex%(NSUInteger)screenW ==0) {
+        pageIndexs = offsex/(NSUInteger)screenW;
+        self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu",pageIndexs +1,(unsigned long)[pageSeparationTools sharepageSeparationTools].pageArray.count];
+    }
+    
+}
+//目录点击回调
+-(void)backChapter:(Chapter *)chapter{
+    [self backChapterContent:chapter];
+
+}
+
+-(void)selectColor:(UIColor *)color{
+    self.textsScroller.backgroundColor = color;
+
+}
+-(void)changeFont:(changeFont)change{
+    NSMutableArray *arr = [NSMutableArray new];
+    switch (change) {
+        case big:
+          arr = [[pageSeparationTools sharepageSeparationTools] upBIGFont];
+            break;
+        case small:
+          arr = [[pageSeparationTools sharepageSeparationTools] upSamilFont];
+            break;
+        case restore:
+          arr = [[pageSeparationTools sharepageSeparationTools] upRestoreFont];
+            break;
+        default:
+            break;
+    }
+    if ([self fontChange]) {
+        [self textViewChangeWithArray:arr];
+        self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu" ,(NSUInteger)self.textsScroller.contentOffset.x/(NSUInteger)screenW +1,[pageSeparationTools sharepageSeparationTools].pageArray.count];
+    }
+    
+
+}
+#pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.colortView.delegate = self;
+    self.fontView.delegate = self;
+    [self.view addSubview:self.fontView];
+    [self.view addSubview:self.colortView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveMark) name:@"background" object:nil];
 //    初始化scroll
 
     [self allocScrollview];
     [self loadLastTime];
     allowEnable = YES;
-//    for (int i = 0; i<3; i++) {
-//        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(screenW/3*i, 20, screenW/3, screenH-20)];
-//        btn.backgroundColor =[UIColor clearColor];
-//        btn.tag = 1000 +i;
-//        [btn addTarget:self action:@selector(touchPage:) forControlEvents:UIControlEventTouchDown];
-//         [self.view insertSubview:btn aboveSubview:self.textsScroller];
-//    }
-
     [self.view insertSubview:self.chapterLabei aboveSubview:self.textsScroller];
     [self.view insertSubview:self.pageNumber aboveSubview:self.textsScroller];
 }
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#pragma mark - 一些方法
 /**
  *  保存书签
  */
+
 -(void)saveMark{
 //    放置数组为空
     if (!self.capArray) return;
@@ -251,12 +358,16 @@
 //    NSLog(@"save");
 
 }
+
 -(void)textViewChangeWithArray:(NSMutableArray *)stringArray{
     for (UITextView *remo in self.textsScroller.subviews) {
         [remo removeFromSuperview];
     }
     [self allocTxtViewWith:stringArray];
 }
+/**
+ *  添加textview
+ */
 -(void)allocTxtViewWith:(NSMutableArray *)arr{
     NSUInteger index = arr.count;
     self.textsScroller.contentSize = CGSizeMake(screenW *index, screenH);
@@ -267,12 +378,15 @@
             self.txtView.attributedText = arr[i];
             self.txtView.scrollEnabled = NO;
             self.txtView.userInteractionEnabled = NO;
-//            UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesrecognizer:)];
-//            [self.txtView addGestureRecognizer:recognizer];
             [self.textsScroller addSubview:self.txtView];
     }
 }
+
+/**
+ *  阅读界面启动操作
+ */
 -(void)loadLastTime{
+    [self.hub show:YES];
     /*
      1.判断书签存不存在
 
@@ -298,15 +412,14 @@
             Chapter *chapter = [Chapter MR_findFirstByAttribute:@"chapterUrl" withValue:url];
             [self.capArray enumerateObjectsUsingBlock:^(Chapter *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                 if ([chapter.chapterUrl isEqualToString:obj.chapterUrl]) {
-                    NSLog(@"jjjj%lu",(unsigned long)idx);
+
                     indexs = idx;
 
                     
                 }
             }];
-//            indexs = [self.capArray indexOfObject:chapter];
-//            NSLog(@"test---%lu",(unsigned long)indexs);
         }
+        [self.hub hide:YES];
     }else{
         if (self.model.booksUrl == nil) {
             return;
@@ -328,10 +441,12 @@
                 [self allocTxtViewWith:arr];
                 self.chapterLabei.text = [NetWorkTools shareNetWorkTools].currChaperString;
                 self.pageNumber.text = [NSString stringWithFormat:@"1/%lu",arr.count];
+                [self.hub hide:YES];
             } Error:^(NSError *error) {
 
             }];
-     } Error:^(NSError *error) {
+
+        } Error:^(NSError *error) {
 
         }];
     }
@@ -388,6 +503,7 @@
 }
 //下一章
 -(void)newChapterContent{
+    [self.hub show:YES];
     self.capArray = (NSMutableArray *)[Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
 
     if (indexs+1 >= self.capArray.count) return;
@@ -395,29 +511,22 @@
     Chapter  *modelss = self.capArray[indexs];
     if (modelss.content.contentString) {
         [self loadCacheModel:modelss];
+        [self.hub hide:YES];
     }else{
 
     NSString *url = [[@"http://m.ybdu.com"  stringByAppendingString:[self.model.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"] ] stringByAppendingString:modelss.chapterUrl];
     [[NetWorkTools shareNetWorkTools] bookChapterContentGET:url Succees:^(id books) {
         [self loadCacheString:books];
-//        for (UITextView *remo in self.textsScroller.subviews) {
-//            [remo removeFromSuperview];
-//        }
-//         currString = books;
-//        NSMutableArray *arr = [[pageSeparationTools sharepageSeparationTools] pageSeparationWithSting:books];
-////        self.textsScroller.contentSize = CGSizeMake(screenW *arr.count, screenH);
-//        [self allocTxtViewWith:arr];
-//        [self.textsScroller setContentOffset:CGPointMake(0, 0)];
-//        pageIndexs = 1;
-//        self.chapterLabei.text = [NetWorkTools shareNetWorkTools].currChaperString;
-//        self.pageNumber.text = [NSString stringWithFormat:@"1/%lu",arr.count];
+        [self.hub hide:YES];
     } Error:^(NSError *error) {
 
     }];
     }
+
 }
 //上一章
 -(void)upChapterContent{
+    [self.hub show:YES];
     self.capArray = (NSMutableArray *)[Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
     indexs--;
     if (indexs  == -1){
@@ -438,12 +547,15 @@
         pageIndexs = arr.count;
         self.chapterLabei.text = [NetWorkTools shareNetWorkTools].currChaperString;
         self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu",arr.count,arr.count];
+
+        [self.hub hide:YES];
     } Error:^(NSError *error) {
 
     }];
 }
 //目录点击回调解析
 -(void)backChapterContent:(Chapter *)model{
+    [self.hub show:YES];
     self.capArray = (NSMutableArray *)[Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
     [self.capArray enumerateObjectsUsingBlock:^(Chapter *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([model.chapterUrl isEqualToString:obj.chapterUrl]) {
@@ -455,37 +567,15 @@
                 NSString *url = [[@"http://m.ybdu.com"  stringByAppendingString:[self.model.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"] ] stringByAppendingString:model.chapterUrl];
                 [[NetWorkTools shareNetWorkTools] bookChapterContentGET:url Succees:^(id books) {
                     [self loadCacheString:books];
-                } Error:^(NSError *error) {
+                    } Error:^(NSError *error) {
                     
                 }];
 
             }
         }
     }];
-    /*model = self.capArray[indexs];
-    if (model.content.contentString) {
-        [self loadCacheModel:model];
-    }else{
+    [self.hub hide:YES];
 
-    NSString *url = [[@"http://m.ybdu.com"  stringByAppendingString:[self.model.booksUrl stringByReplacingOccurrencesOfString:@"xiazai" withString:@"xiaoshuo"] ] stringByAppendingString:model.chapterUrl];
-    [[NetWorkTools shareNetWorkTools] bookChapterContentGET:url Succees:^(id books) {
-        [self loadCacheString:books];
-//        for (UITextView *remo in self.textsScroller.subviews) {
-//            [remo removeFromSuperview];
-//        }
-//        currString = books;
-//        NSMutableArray *arr = [[pageSeparationTools sharepageSeparationTools] pageSeparationWithSting:books];
-////        self.textsScroller.contentSize = CGSizeMake(screenW *arr.count, screenH);
-//        [self allocTxtViewWith:arr];
-//        [self.textsScroller setContentOffset:CGPointMake(0, 0)];
-//        pageIndexs = 1;
-//        self.chapterLabei.text = [NetWorkTools shareNetWorkTools].currChaperString;
-//        self.pageNumber.text = [NSString stringWithFormat:@"1/%lu",arr.count];
-    } Error:^(NSError *error) {
-
-    }];
-    }
-*/
 }
 //解析书签
 -(void)startMark:(NSString *)text index:(NSUInteger)currNumber chapterUrl:(NSString *)string fontsize:(CGFloat)size{
@@ -505,32 +595,14 @@
     Chapter *cs = [Chapter MR_findFirstByAttribute:@"chapterUrl" withValue:string];
     self.chapterLabei.text = [cs.chapterString stringByReplacingOccurrencesOfString:@"\n\t" withString:@""];
     self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu",currNumber+1,arr.count];
-
-        self.capArray = (NSMutableArray *)[Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
-
-}
-
--(void)allocScrollview{
-    self.booksName.text = _model.booksName;
-    self.textsScroller.pagingEnabled = YES;
-    self.textsScroller.delegate = self;
-    self.textsScroller.decelerationRate = 0.1f;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchPage:)];
-    [self.textsScroller addGestureRecognizer:tap];
-
-    [self.view bringSubviewToFront:self.topViews];
-    [self.view bringSubviewToFront:self.toolsView];
+    self.capArray = (NSMutableArray *)[Chapter MR_findByAttribute:@"book.booksUrl" withValue:self.model.booksUrl andOrderBy:@"chapterUrl" ascending:YES];
 
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSUInteger offsex = scrollView.contentOffset.x;
 
-    if (offsex%(NSUInteger)screenW ==0) {
-        pageIndexs = offsex/(NSUInteger)screenW;
-        self.pageNumber.text = [NSString stringWithFormat:@"%lu/%lu",pageIndexs +1,(unsigned long)[pageSeparationTools sharepageSeparationTools].pageArray.count];
-    }
 
-}
+/**
+ *  缓存alert
+ */
 -(void)chapterCacheAlert{
     UIAlertController *cache = [UIAlertController alertControllerWithTitle:@"缓存" message:@"123" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *nextFiveChaptr = [UIAlertAction actionWithTitle:@"缓存5章" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

@@ -41,4 +41,5 @@ typedef void(^error)(NSError *error);
 -(NSMutableArray *)pageSeparationWithSting:(NSString *)ChapterContent;
 -(NSMutableArray *)upBIGFont;
 -(NSMutableArray *)upSamilFont;
+-(NSMutableArray *)upRestoreFont;
 @end
