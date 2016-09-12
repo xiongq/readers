@@ -29,6 +29,7 @@
 		C83F45011D74022500E72375 /* booksModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F44FE1D74022500E72375 /* booksModel.m */; };
 		C83F45021D74022500E72375 /* booksCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C83F44FF1D74022500E72375 /* booksCell.xib */; };
 		C83F45051D7483C900E72375 /* textViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83F45041D7483C900E72375 /* textViewController.m */; };
+		C8CA1CBE1D86A0A700108A9C /* backgroundColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8CA1CBD1D86A0A700108A9C /* backgroundColor.plist */; };
 		C8F8E6EE1D75402E001596E4 /* catalogueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E6ED1D75402E001596E4 /* catalogueViewController.m */; };
 		C8F8E6F21D754049001596E4 /* catalogueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8F8E6F01D754049001596E4 /* catalogueTableViewCell.m */; };
 		C8F8E6F31D754049001596E4 /* catalogueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F8E6F11D754049001596E4 /* catalogueTableViewCell.xib */; };
@@ -83,6 +84,7 @@
 		C83F44FF1D74022500E72375 /* booksCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = booksCell.xib; sourceTree = "<group>"; };
 		C83F45031D7483C900E72375 /* textViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textViewController.h; sourceTree = "<group>"; };
 		C83F45041D7483C900E72375 /* textViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = textViewController.m; sourceTree = "<group>"; };
+		C8CA1CBD1D86A0A700108A9C /* backgroundColor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = backgroundColor.plist; sourceTree = "<group>"; };
 		C8F8E6EC1D75402E001596E4 /* catalogueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = catalogueViewController.h; sourceTree = "<group>"; };
 		C8F8E6ED1D75402E001596E4 /* catalogueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = catalogueViewController.m; sourceTree = "<group>"; };
 		C8F8E6EF1D754049001596E4 /* catalogueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = catalogueTableViewCell.h; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				C83F44E51D73E79C00E72375 /* Assets.xcassets */,
 				C83F44E71D73E79C00E72375 /* LaunchScreen.storyboard */,
 				C83F44EA1D73E79C00E72375 /* Info.plist */,
+				C8CA1CBD1D86A0A700108A9C /* backgroundColor.plist */,
 				C83F44DC1D73E79C00E72375 /* AppDelegate.h */,
 				C83F44DD1D73E79C00E72375 /* AppDelegate.m */,
 			);
@@ -433,6 +436,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8CA1CBE1D86A0A700108A9C /* backgroundColor.plist in Resources */,
 				C8315F761D806EE500A805D7 /* searchBookCell.xib in Resources */,
 				C83F45021D74022500E72375 /* booksCell.xib in Resources */,
 				C835FADA1D825FE5003255D8 /* fontChangeView.xib in Resources */,
@@ -589,7 +593,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -630,7 +634,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

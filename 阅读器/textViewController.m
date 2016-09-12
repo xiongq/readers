@@ -110,7 +110,22 @@
 
     [self.view bringSubviewToFront:self.topViews];
     [self.view bringSubviewToFront:self.toolsView];
-    
+
+
+
+    NSUserDefaults *deful = [NSUserDefaults standardUserDefaults];
+    NSLog(@"dic%@",deful);
+    NSString *str = [deful valueForKey:@"colors"];
+    if (str) {
+
+        UIColor *colors = [UIColor whiteColor];
+        if ([str isEqualToString:@"gray"]) {
+            colors = [UIColor grayColor];
+        }else if ([str isEqualToString:@"yellow"]){
+            colors =  [UIColor colorWithRed:223.0f/255.0 green:208.0f/255.0 blue:175.0f/255.0 alpha:1];
+        }
+        self.textsScroller.backgroundColor = colors;
+    }
 }
 
 #pragma mark - 工具按键点击
@@ -280,6 +295,16 @@
 
 -(void)selectColor:(UIColor *)color{
     self.textsScroller.backgroundColor = color;
+    NSUserDefaults *deful = [NSUserDefaults standardUserDefaults];
+
+    if (color == [UIColor grayColor]) {
+        [deful setValue:@"gray" forKey:@"colors"];
+    }else if (color == [UIColor whiteColor]){
+        [deful setValue:@"white" forKey:@"colors"];
+    }else{
+        [deful setValue:@"yellow" forKey:@"colors"];
+    }
+
 
 }
 -(void)changeFont:(changeFont)change{
@@ -372,7 +397,7 @@
     NSUInteger index = arr.count;
     self.textsScroller.contentSize = CGSizeMake(screenW *index, screenH);
     for (int i = 0; i < index; i++) {
-            self.txtView = [[UITextView alloc] initWithFrame:CGRectMake(i*screenW+30, 20, screenW-60, screenH-40)];
+            self.txtView = [[UITextView alloc] initWithFrame:CGRectMake(i*screenW+20, 20, screenW -40, screenH -20)];
             self.txtView.editable = NO;
             self.txtView.backgroundColor = [UIColor clearColor];
             self.txtView.attributedText = arr[i];

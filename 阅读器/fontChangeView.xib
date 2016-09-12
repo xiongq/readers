@@ -15,7 +15,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEH-Gu-6pI">
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                     <state key="normal" title="A+">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="bigss:" destination="iN0-l3-epB" eventType="touchUpInside" id="YLf-MP-uqd"/>
@@ -24,7 +24,7 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="im4-jG-PP8">
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                     <state key="normal" title="A-">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="small:" destination="iN0-l3-epB" eventType="touchUpInside" id="ey2-Fl-Nfc"/>
@@ -33,14 +33,14 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yah-ey-PLo">
                     <fontDescription key="fontDescription" type="system" pointSize="33"/>
                     <state key="normal" title="A">
-                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
                         <action selector="restore:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xa8-Lj-KBJ"/>
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.50107032060623169" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.98924356698989868" green="0.41648608446121216" blue="0.031833931803703308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="yah-ey-PLo" firstAttribute="leading" secondItem="im4-jG-PP8" secondAttribute="trailing" constant="70" id="2ka-OW-F51"/>
                 <constraint firstItem="aEH-Gu-6pI" firstAttribute="top" secondItem="yah-ey-PLo" secondAttribute="top" id="3xk-ET-jbQ"/>

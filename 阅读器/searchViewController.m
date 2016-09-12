@@ -114,9 +114,7 @@
 
 
         NSStringEncoding enc= CFStringConvertEncodingToNSStringEncoding (kCFStringEncodingGB_18030_2000);
-//    [NSString stringWithFormat:@"searchtype=articlename&searchkey=%@&submit=",searchText];
         NSData *body = [[NSString stringWithFormat:@"searchtype=articlename&searchkey=%@&submit=",searchText] dataUsingEncoding:enc];
-    
         NSURL *url = [NSURL URLWithString:@"http://m.ybdu.com/modules/article/search.php"];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         [request setHTTPMethod:@"POST"];
